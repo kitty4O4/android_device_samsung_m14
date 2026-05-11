@@ -270,3 +270,16 @@ PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/prebuilt/firmware/chipone_limit.bin:$(TARGET_COPY_OUT_VENDOR)/firmware/chipone_limit.bin
 
 TW_LOAD_VENDOR_MODULES := "chipone_fp.ko"
+
+# ============================================
+# OrangeFox AVB 2.0 Patching (confirmed via vbmeta digest)
+# ============================================
+OF_PATCH_AVB20 := 1
+
+# AVB / Verification Flags
+BOARD_AVB_RECOVERY_ENABLE := false
+BOARD_AVB_MAKE_VBMETA_IMAGE := false
+BOARD_AVB_BOOT_KEY_PATH := external/avb/test/data/testkey_rsa4096.pem
+BOARD_AVB_BOOT_ALGORITHM := SHA256_RSA4096
+BOARD_AVB_RECOVERY_ROLLBACK_INDEX := 0
+BOARD_AVB_RECOVERY_ROLLBACK_INDEX_LOCATION := 0
