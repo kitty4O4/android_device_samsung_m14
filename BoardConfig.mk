@@ -39,11 +39,11 @@ TARGET_BOARD_PLATFORM := $(TARGET_SOC)
 QCOM_BOARD_PLATFORMS := $(TARGET_SOC)
 TARGET_BOARD_PLATFORM_GPU := Adreno-610
 
-# Display
+# Display (Galaxy M14 4G: 1080x2400)
 TW_THEME := portrait_hdpi
 TARGET_SCREEN_DENSITY := 403
-TARGET_SCREEN_HEIGHT := 1080
-TARGET_SCREEN_WIDTH := 2340
+TARGET_SCREEN_HEIGHT := 2400
+TARGET_SCREEN_WIDTH := 1080
 TW_BRIGHTNESS_PATH := "/sys/devices/platform/soc/5e00000.qcom,mdss_mdp/backlight/panel0-backlight/brightness"
 TW_MAX_BRIGHTNESS := 255
 TW_DEFAULT_BRIGHTNESS := 150
@@ -90,7 +90,7 @@ BOARD_MKBOOTIMG_ARGS += --ramdisk_offset $(BOARD_RAMDISK_OFFSET)
 BOARD_MKBOOTIMG_ARGS += --tags_offset $(BOARD_KERNEL_TAGS_OFFSET)
 BOARD_MKBOOTIMG_ARGS += --dtb $(TARGET_PREBUILT_DTB)
 
-# Kernel modules
+# Kernel modules (preserve original modules, Chipone will be added)
 TW_LOAD_VENDOR_MODULES := $(shell echo \"$(shell ls $(DEVICE_PATH)/recovery/root/lib/modules)\")
 
 BOARD_ROOT_EXTRA_FOLDERS := \
@@ -231,12 +231,9 @@ OF_DISABLE_MIUI_OTA_BY_DEFAULT := 1
 OF_OTA_BACKUP_STOCK_BOOT_IMAGE := 1
 OF_RUN_POST_FORMAT_PROCESS := 1
 OF_ADVANCED_SECURITY := 1
-OF_FLASHLIGHT_ENABLE := 0
-OF_USE_GREEN_LED := 0
 OF_QUICK_BACKUP_LIST := /boot;/dtbo;
 OF_FORCE_PREBUILT_KERNEL := 1
 OF_ENABLE_LPTOOLS := 1
-OF_KEEP_DM_VERITY_FORCED_ENCRYPTION := 1
 OF_SKIP_DECRYPTED_ADOPTED_STORAGE := 1
 OF_FIX_DECRYPTION_ON_DATA_MEDIA := 1
 OF_UNBIND_SDCARD_F2FS := 1
@@ -269,14 +266,15 @@ PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/prebuilt/firmware/chipone_firmware.bin:$(TARGET_COPY_OUT_VENDOR)/firmware/chipone_firmware.bin \
     $(DEVICE_PATH)/prebuilt/firmware/chipone_limit.bin:$(TARGET_COPY_OUT_VENDOR)/firmware/chipone_limit.bin
 
-TW_LOAD_VENDOR_MODULES := "chipone_fp.ko"
+# Add Chipone module to existing modules (preserve original modules)
+TW_LOAD_VENDOR_MODULES += "chipone_fp.ko"
 
 # ============================================
 # OrangeFox AVB 2.0 Patching (confirmed via vbmeta digest)
 # ============================================
 OF_PATCH_AVB20 := 1
 
-# AVB / Verification Flags
+# AVB / Verification Flags (for recovery only)
 BOARD_AVB_RECOVERY_ENABLE := false
 BOARD_AVB_MAKE_VBMETA_IMAGE := false
 BOARD_AVB_BOOT_KEY_PATH := external/avb/test/data/testkey_rsa4096.pem
