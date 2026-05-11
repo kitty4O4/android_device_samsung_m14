@@ -270,4 +270,3 @@ PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/prebuilt/firmware/chipone_limit.bin:$(TARGET_COPY_OUT_VENDOR)/firmware/chipone_limit.bin
 
 TW_LOAD_VENDOR_MODULES := "chipone_fp.ko"
-```
