@@ -172,7 +172,7 @@ TW_INCLUDE_LPDUMP := true
 
 # TWRP Configuration
 TW_SCREEN_BLANK_ON_BOOT := true
-TW_INPUT_BLACKLIST := "hbtp_vm"
+TW_INPUT_BLACKLIST := "hbtp_vm","accelerometer","gyroscope","proximity"
 TW_USE_TOOLBOX := true
 TW_EXCLUDE_APEX := true
 TW_NO_BIND_SYSTEM := true
@@ -237,6 +237,7 @@ OF_KEEP_DM_VERITY_FORCED_ENCRYPTION := 1
 OF_SKIP_DECRYPTED_ADOPTED_STORAGE := 1
 OF_FIX_DECRYPTION_ON_DATA_MEDIA := 1
 OF_UNBIND_SDCARD_F2FS := 1
+OF_HAPTICS_ENABLE := 0
 
 # Skyhawk Recovery - ONLY FOR SKYHAWK RECOVERY PROJECT BUILDING
 SHRP_DARK := true
@@ -256,3 +257,14 @@ MAINTAINER := SavedByLight & ravindu644
 
 # For testing only
 BETA_BUILD := true
+
+# ============================================
+# Chipone Touchscreen (add this at the very end)
+# ============================================
+PRODUCT_COPY_FILES += \
+    $(DEVICE_PATH)/prebuilt/chipone_fp.ko:$(TARGET_COPY_OUT_VENDOR)/lib/modules/chipone_fp.ko \
+    $(DEVICE_PATH)/prebuilt/firmware/chipone_firmware.bin:$(TARGET_COPY_OUT_VENDOR)/firmware/chipone_firmware.bin \
+    $(DEVICE_PATH)/prebuilt/firmware/chipone_limit.bin:$(TARGET_COPY_OUT_VENDOR)/firmware/chipone_limit.bin
+
+TW_LOAD_VENDOR_MODULES := "chipone_fp.ko"
+```
