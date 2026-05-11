@@ -140,15 +140,15 @@ TARGET_USES_MKE2FS := true
 TW_INCLUDE_NTFS_3G := true
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery.fstab
 
-# Verified Boot
+# Verified Boot (Simplified to match working TWRP build)
 BOARD_AVB_ENABLE := true
-BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --flags 3
+BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --flags 0
 BOARD_AVB_RECOVERY_KEY_PATH := external/avb/test/data/testkey_rsa4096.pem
 BOARD_AVB_RECOVERY_ALGORITHM := SHA256_RSA4096
-BOARD_AVB_RECOVERY_ROLLBACK_INDEX := 1
-BOARD_AVB_RECOVERY_ROLLBACK_INDEX_LOCATION := 1
+BOARD_AVB_RECOVERY_ROLLBACK_INDEX := 0
+BOARD_AVB_RECOVERY_ROLLBACK_INDEX_LOCATION := 0
 
-# Hack: prevent anti rollback
+# Hack: Prevent Anti Rollback
 PLATFORM_SECURITY_PATCH := 2099-12-31
 VENDOR_SECURITY_PATCH := 2099-12-31
 PLATFORM_VERSION := 16.1.0
@@ -259,7 +259,7 @@ MAINTAINER := SavedByLight, Ravindu644 & Nightwings
 BETA_BUILD := true
 
 # ============================================
-# Chipone Touchscreen (add this at the very end)
+# Chipone Touchscreen
 # ============================================
 PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/prebuilt/chipone_fp.ko:$(TARGET_COPY_OUT_VENDOR)/lib/modules/chipone_fp.ko \
@@ -268,16 +268,3 @@ PRODUCT_COPY_FILES += \
 
 # Add Chipone module to existing modules (preserve original modules)
 TW_LOAD_VENDOR_MODULES += "chipone_fp.ko"
-
-# ============================================
-# OrangeFox AVB 2.0 Patching (confirmed via vbmeta digest)
-# ============================================
-OF_PATCH_AVB20 := 1
-
-# AVB / Verification Flags (for recovery only)
-BOARD_AVB_RECOVERY_ENABLE := false
-BOARD_AVB_MAKE_VBMETA_IMAGE := false
-BOARD_AVB_BOOT_KEY_PATH := external/avb/test/data/testkey_rsa4096.pem
-BOARD_AVB_BOOT_ALGORITHM := SHA256_RSA4096
-BOARD_AVB_RECOVERY_ROLLBACK_INDEX := 0
-BOARD_AVB_RECOVERY_ROLLBACK_INDEX_LOCATION := 0
