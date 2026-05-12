@@ -148,7 +148,7 @@ BOARD_AVB_RECOVERY_ALGORITHM := SHA256_RSA4096
 BOARD_AVB_RECOVERY_ROLLBACK_INDEX := 0
 BOARD_AVB_RECOVERY_ROLLBACK_INDEX_LOCATION := 0
 
-# Hack: Prevent Anti Rollback
+# Hack: prevent anti rollback
 PLATFORM_SECURITY_PATCH := 2099-12-31
 VENDOR_SECURITY_PATCH := 2099-12-31
 PLATFORM_VERSION := 16.1.0
@@ -262,7 +262,7 @@ BETA_BUILD := true
 # Chipone Touchscreen
 # ============================================
 PRODUCT_COPY_FILES += \
-    $(DEVICE_PATH)/prebuilt/chipone_fp.ko:$(TARGET_COPY_OUT_VENDOR)/lib/modules/chipone_fp.ko \
+    device/samsung/m14/prebuilt/chipone_fp.ko:$(TARGET_COPY_OUT_VENDOR)/lib/modules/chipone_fp.ko \
     $(DEVICE_PATH)/prebuilt/firmware/chipone_firmware.bin:$(TARGET_COPY_OUT_VENDOR)/firmware/chipone_firmware.bin \
     $(DEVICE_PATH)/prebuilt/firmware/chipone_limit.bin:$(TARGET_COPY_OUT_VENDOR)/firmware/chipone_limit.bin
 
