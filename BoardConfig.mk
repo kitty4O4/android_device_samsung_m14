@@ -110,9 +110,8 @@ BOARD_ROOT_EXTRA_FOLDERS := \
 
 # Copy .idc file 
 PRODUCT_COPY_FILES += \
-    $(DEVICE_PATH)/recovery/root/system/usr/idc/himax-touchscreen.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/himax-touchscreen.idc \
-    $(DEVICE_PATH)/recovery/root/system/usr/idc/himax-touchscreen.idc:$(TARGET_COPY_OUT_ODM)/usr/idc/himax-touchscreen.idc \
-    $(DEVICE_PATH)/recovery/root/system/usr/idc/himax-touchscreen.idc:system/usr/idc/himax-touchscreen.idc
+    $(DEVICE_PATH)/recovery/root/system/usr/idc/himax-touchscreen.idc:system/usr/idc/himax-touchscreen.idc \
+    $(DEVICE_PATH)/recovery/root/system/usr/idc/himax-touchscreen.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/himax-touchscreen.idc
 
 # MKBOOTIMG
 BOARD_CUSTOM_BOOTIMG_MK := $(DEVICE_PATH)/mkbootimg.mk
@@ -200,7 +199,6 @@ TW_USE_SAMSUNG_JDM_HAPTICS := false
 
 # Copy Out 
 TARGET_COPY_OUT_VENDOR := vendor
-TARGET_COPY_OUT_ODM := odm
 
 # Logging
 TARGET_USES_LOGD := true
