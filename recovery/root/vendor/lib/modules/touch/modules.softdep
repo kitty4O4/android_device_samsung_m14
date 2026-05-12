@@ -1,5 +1,0 @@
-# Soft dependencies extracted from modules themselves.
-softdep nopmi_chg pre: upm6918_charger sm5602_fg 
-softdep hx83112f pre: msm_drm
-softdep ilitek pre: msm_drm
-softdep icnl9922c pre: msm_drm
