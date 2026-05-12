@@ -1,0 +1,22 @@
+sp2130_drv.ko:
+cmd.ko:
+mbhc_dlkm.ko: fsa4480-i2c.ko ucsi_glink.ko pmic_glink.ko
+nopmi-chg.ko: sd77428.ko sm5602_fg.ko pd_policy_manager.ko qcom-pmic-voter.ko tcpc_class.ko sp2130_drv.ko pd_dbg_info.ko
+pd_dbg_info.ko:
+hx83112f.ko: lct_tp.ko cmd.ko tp_info.ko msm_drm.ko qcom_va_minidump.ko panel_event_notifier.ko mbhc_dlkm.ko fsa4480-i2c.ko ucsi_glink.ko pmic_glink.ko nopmi-chg.ko sd77428.ko sm5602_fg.ko pd_policy_manager.ko qcom-pmic-voter.ko tcpc_class.ko sp2130_drv.ko pd_dbg_info.ko
+ilitek.ko: lct_tp.ko cmd.ko tp_info.ko msm_drm.ko qcom_va_minidump.ko panel_event_notifier.ko
+ucsi_glink.ko: pmic_glink.ko
+tp_info.ko:
+pd_policy_manager.ko: qcom-pmic-voter.ko tcpc_class.ko sp2130_drv.ko pd_dbg_info.ko
+fsa4480-i2c.ko: ucsi_glink.ko pmic_glink.ko
+panel_event_notifier.ko:
+tcpc_class.ko: sp2130_drv.ko pd_dbg_info.ko
+qcom_va_minidump.ko:
+lct_tp.ko:
+goodix_ts.ko: panel_event_notifier.ko
+icnl9922c.ko: lct_tp.ko cmd.ko tp_info.ko msm_drm.ko qcom_va_minidump.ko panel_event_notifier.ko
+msm_drm.ko: qcom_va_minidump.ko panel_event_notifier.ko
+qcom-pmic-voter.ko:
+sd77428.ko:
+sm5602_fg.ko:
+pmic_glink.ko:
