@@ -92,7 +92,6 @@ BOARD_MKBOOTIMG_ARGS += --dtb $(TARGET_PREBUILT_DTB)
 
 # Kernel modules (preserve original modules, Chipone will be added)
 TW_LOAD_VENDOR_MODULES := $(shell echo \"$(shell ls $(DEVICE_PATH)/recovery/root/vendor/lib/modules)\")
-TW_LOAD_VENDOR_MODULES += "chipone_fp.ko"
 
 BOARD_ROOT_EXTRA_FOLDERS := \
     carrier \
