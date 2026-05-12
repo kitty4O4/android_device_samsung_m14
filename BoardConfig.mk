@@ -108,6 +108,12 @@ BOARD_ROOT_EXTRA_FOLDERS := \
     keydata \
     keyrefuge
 
+# Copy .idc file 
+PRODUCT_COPY_FILES += \
+    $(DEVICE_PATH)/recovery/root/system/usr/idc/himax-touchscreen.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/himax-touchscreen.idc \
+    $(DEVICE_PATH)/recovery/root/system/usr/idc/himax-touchscreen.idc:$(TARGET_COPY_OUT_ODM)/usr/idc/himax-touchscreen.idc \
+    $(DEVICE_PATH)/recovery/root/system/usr/idc/himax-touchscreen.idc:system/usr/idc/himax-touchscreen.idc
+
 # MKBOOTIMG
 BOARD_CUSTOM_BOOTIMG_MK := $(DEVICE_PATH)/mkbootimg.mk
 
@@ -194,6 +200,7 @@ TW_USE_SAMSUNG_JDM_HAPTICS := false
 
 # Copy Out 
 TARGET_COPY_OUT_VENDOR := vendor
+TARGET_COPY_OUT_ODM := odm
 
 # Logging
 TARGET_USES_LOGD := true
@@ -251,10 +258,10 @@ PB_TORCH_PATH := "/sys/devices/virtual/camera/flash/rear_flash"
 PB_TORCH_MAX_BRIGHTNESS := 1
 
 # Version/Maintainer
-TW_DEVICE_VERSION := SavedByLight, Ravindu644 & Nightwings
-SHRP_MAINTAINER := SavedByLight, Ravindu644 & Nightwings
-OF_MAINTAINER := SavedByLight, Ravindu644 & Nightwings
-MAINTAINER := SavedByLight, Ravindu644 & Nightwings
+TW_DEVICE_VERSION := SavedByLight, Ravindu644, Nightwing
+SHRP_MAINTAINER := SavedByLight, Ravindu644, Nightwing
+OF_MAINTAINER := SavedByLight, Ravindu644, Nightwing
+MAINTAINER := SavedByLight, Ravindu644, Nightwing
 
 # For testing only
 BETA_BUILD := true
