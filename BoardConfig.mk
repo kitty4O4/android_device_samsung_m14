@@ -92,6 +92,7 @@ BOARD_MKBOOTIMG_ARGS += --dtb $(TARGET_PREBUILT_DTB)
 
 # Kernel modules (preserve original modules, Chipone will be added)
 TW_LOAD_VENDOR_MODULES := $(shell echo \"$(shell ls $(DEVICE_PATH)/recovery/root/lib/modules)\")
+TW_LOAD_VENDOR_MODULES += "chipone_fp.ko"
 
 BOARD_ROOT_EXTRA_FOLDERS := \
     carrier \
@@ -257,14 +258,3 @@ MAINTAINER := SavedByLight, Ravindu644 & Nightwings
 
 # For testing only
 BETA_BUILD := true
-
-# ============================================
-# Chipone Touchscreen
-# ============================================
-PRODUCT_COPY_FILES += \
-    device/samsung/m14/prebuilt/chipone_fp.ko:$(TARGET_COPY_OUT_VENDOR)/lib/modules/chipone_fp.ko \
-    $(DEVICE_PATH)/prebuilt/firmware/chipone_firmware.bin:$(TARGET_COPY_OUT_VENDOR)/firmware/chipone_firmware.bin \
-    $(DEVICE_PATH)/prebuilt/firmware/chipone_limit.bin:$(TARGET_COPY_OUT_VENDOR)/firmware/chipone_limit.bin
-
-# Add Chipone module to existing modules (preserve original modules)
-TW_LOAD_VENDOR_MODULES += "chipone_fp.ko"
