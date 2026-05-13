@@ -1,4 +1,4 @@
-# Android device tree for Samsung SM-M145F (Only himax-touchscreen fix, not for ilitek & chipone sensors)
+# Android device tree for Samsung SM-M145F (himax-touchscreen fix, not for ilitek & chipone)
 
 # Contributors
  - [Ravindu644](https://github.com/ravindu644) - Custom Kernel Developer, Fixed touch implementation in Chipone
