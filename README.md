@@ -9,7 +9,7 @@
  - Himax touch screen is currently broken, trying to resolve
 
 # Kernel
-https://github.com/ravindu644/android_kernel_sm_m145f/tree/TWRP (The work of @ravindu644)
+https://github.com/ravindu644/android_kernel_sm_m145f/tree/TWRP (The work of @Ravindu644)
 
 ```
 #
