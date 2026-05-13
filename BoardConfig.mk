@@ -181,7 +181,7 @@ TW_INCLUDE_LPDUMP := true
 
 # TWRP Configuration
 TW_SCREEN_BLANK_ON_BOOT := true
-TW_INPUT_BLACKLIST := "hbtp_vm","accelerometer","gyroscope","proximity"
+TW_INPUT_BLACKLIST := "grip_sensor_wifi","grip_sensor","meta_event","uinput-goodix","fpc_irq@soc:fpc_fp","accelerometer","gyroscope"
 TW_USE_TOOLBOX := true
 TW_EXCLUDE_APEX := true
 TW_NO_BIND_SYSTEM := true
