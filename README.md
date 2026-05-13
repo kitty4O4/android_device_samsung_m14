@@ -1,4 +1,4 @@
-# Android device tree for Samsung SM-M145F (a05s)
+# Android device tree for Samsung SM-M145F (Only himax-touchscreen fix, not for ilitek & chipone sensors)
 
 # Contributors
  - [Ravindu644](https://github.com/ravindu644) - Custom Kernel Developer, Fixed touch implementation in Chipone
@@ -6,8 +6,8 @@
 
 # Bugs
  - Data Mounting
- - Himax touch screen is currently broken (We want to fix this but are having a hard time finding a willing tester to pull logs and things in order to fix it)
- 
+ - Himax touch screen is currently broken, trying to resolve
+
 # Kernel
 https://github.com/ravindu644/android_kernel_sm_m145f/tree/TWRP (The work of @ravindu644)
 
