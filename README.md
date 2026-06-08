@@ -5,8 +5,8 @@
  - [SavedByLight](https://github.com/SavedByLight) - Made the initial tree adding all the TW flags to boardconfig
 
 # Bugs
- - Data Mounting
- - Himax touch screen is currently broken, trying to resolve
+ - Data Mounting (Currently on development)
+ - Himax touch screen is currently broken (Working on it, but still hopeless)
 
 # Kernel
 https://github.com/ravindu644/android_kernel_sm_m145f/tree/TWRP (The work of @Ravindu644)
