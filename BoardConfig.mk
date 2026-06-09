@@ -241,10 +241,10 @@ PB_TORCH_PATH := "/sys/devices/virtual/camera/flash/rear_flash"
 PB_TORCH_MAX_BRIGHTNESS := 1
 
 # Version/Maintainer
-TW_DEVICE_VERSION := SavedByLight, Ravindu644, Marine
-SHRP_MAINTAINER := SavedByLight, Ravindu644, Marine
-OF_MAINTAINER := SavedByLight, Ravindu644, Marine
-MAINTAINER := SavedByLight, Ravindu644, Marine
+TW_DEVICE_VERSION := SavedByLight, Ravindu644, Marine Kitagawa
+SHRP_MAINTAINER := SavedByLight, Ravindu644, Marine Kitagawa
+OF_MAINTAINER := SavedByLight, Ravindu644, Marine Kitagawa
+MAINTAINER := SavedByLight, Ravindu644, Marine Kitagawa
 
 # For testing only
 BETA_BUILD := true
