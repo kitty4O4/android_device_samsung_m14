@@ -61,7 +61,7 @@ BOARD_KERNEL_CMDLINE :=  \
 	video=vfb:640x400,bpp=32,memsize=3072000 \
 	printk.devkmsg=on \
 	firmware_class.path=/vendor/firmware,/vendor/firmware_mnt/image,/efs/wifi \
-	onsole=null \
+	console=null \
 	bootconfig \
 	androidboot.hardware=qcom \
 	hardware=qcom \
@@ -72,7 +72,7 @@ BOARD_KERNEL_CMDLINE :=  \
 	loop.max_part=7
 
 # Kernel
-BOARD_BOOTIMG_HEADER_VERSION := 2
+BOARD_BOOTIMG_HEADER_VERSION := 4
 BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_CMDLINE := video=vfb:640x400,bpp=32,memsize=3072000 firmware_class.path=/vendor/firmware,/vendor/firmware_mnt/image,/efs/wifi printk.devkmsg=on bootconfig androidboot.hardware=qcom androidboot.memcg=1 androidboot.usbcontroller=4e00000.dwc3 loop.max_part=7
 BOARD_KERNEL_PAGESIZE := 4096
@@ -82,13 +82,10 @@ BOARD_KERNEL_TAGS_OFFSET := 0x01e00000
 # Kernel - prebuilt
 TARGET_FORCE_PREBUILT_KERNEL := true
 TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/kernel
-TARGET_PREBUILT_DTB := $(DEVICE_PATH)/prebuilt/dtb.img
 BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilt/dtbo.img
-
 BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOTIMG_HEADER_VERSION)
 BOARD_MKBOOTIMG_ARGS += --ramdisk_offset $(BOARD_RAMDISK_OFFSET)
 BOARD_MKBOOTIMG_ARGS += --tags_offset $(BOARD_KERNEL_TAGS_OFFSET)
-BOARD_MKBOOTIMG_ARGS += --dtb $(TARGET_PREBUILT_DTB)
 
 # Kernel Modules
 #TW_LOAD_VENDOR_MODULES := true
@@ -117,18 +114,27 @@ PRODUCT_COPY_FILES += \
 BOARD_CUSTOM_BOOTIMG_MK := $(DEVICE_PATH)/mkbootimg.mk
 
 # Partitions
-BOARD_FLASH_BLOCK_SIZE := 262144 # (BOARD_KERNEL_PAGESIZE * 64)
+BOARD_FLASH_BLOCK_SIZE := 262144
 BOARD_BOOTIMAGE_PARTITION_SIZE := 100663296
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 100663296
 BOARD_HAS_LARGE_FILESYSTEM := true
-BOARD_SYSTEMIMAGE_PARTITION_TYPE := ext4
-BOARD_USERDATAIMAGE_FILE_SYSTEM_TYPE := ext4
-BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
-TARGET_COPY_OUT_VENDOR := vendor
-BOARD_SUPER_PARTITION_SIZE := 9126805504 # TODO: Fix hardcoded value
+
+# Filesystem types - MUST match recovery.fstab
+BOARD_SYSTEMIMAGE_PARTITION_TYPE := erofs
+BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := erofs
+BOARD_USERDATAIMAGE_FILE_SYSTEM_TYPE := f2fs
+BOARD_PRODUCTIMAGE_FILE_SYSTEM_TYPE := erofs
+BOARD_SYSTEM_EXTIMAGE_FILE_SYSTEM_TYPE := erofs
+BOARD_ODMIMAGE_FILE_SYSTEM_TYPE := erofs
+
+# Dynamic partitions
+BOARD_SUPER_PARTITION_SIZE := 9126805504
 BOARD_SUPER_PARTITION_GROUPS := samsung_dynamic_partitions
-BOARD_SAMSUNG_DYNAMIC_PARTITIONS_PARTITION_LIST := system system system vendor system_ext vendor_dlkm product odm
-BOARD_SAMSUNG_DYNAMIC_PARTITIONS_SIZE := 9122611200 # TODO: Fix hardcoded value
+BOARD_SAMSUNG_DYNAMIC_PARTITIONS_PARTITION_LIST := system vendor system_ext vendor_dlkm product odm
+BOARD_SAMSUNG_DYNAMIC_PARTITIONS_SIZE := 9122611200
+
+# Copy out paths
+TARGET_COPY_OUT_VENDOR := vendor
 
 # Recovery
 RECOVERY_SDCARD_ON_DATA := true
@@ -195,9 +201,6 @@ TW_INCLUDE_FASTBOOTD := true
 TW_HAS_DOWNLOAD_MODE := true
 TW_USE_SAMSUNG_JDM_HAPTICS := false
 
-# Copy Out 
-TARGET_COPY_OUT_VENDOR := vendor
-
 # Logging
 TARGET_USES_LOGD := true
 TWRP_INCLUDE_LOGCAT := true
@@ -253,10 +256,10 @@ PB_TORCH_PATH := "/sys/devices/virtual/camera/flash/rear_flash"
 PB_TORCH_MAX_BRIGHTNESS := 1
 
 # Version/Maintainer
-TW_DEVICE_VERSION := SavedByLight, Ravindu644, Nightwing
-SHRP_MAINTAINER := SavedByLight, Ravindu644, Nightwing
-OF_MAINTAINER := SavedByLight, Ravindu644, Nightwing
-MAINTAINER := SavedByLight, Ravindu644, Nightwing
+TW_DEVICE_VERSION := SavedByLight, Ravindu644, Marine
+SHRP_MAINTAINER := SavedByLight, Ravindu644, Marine
+OF_MAINTAINER := SavedByLight, Ravindu644, Marine
+MAINTAINER := SavedByLight, Ravindu644, Marine
 
 # For testing only
 BETA_BUILD := true
